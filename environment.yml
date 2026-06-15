@@ -1,0 +1,19 @@
+name: aira-local
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - xgboost
+  - shap
+  - matplotlib
+  - pillow
+  - requests
+  - cairosvg
+  - seaborn
+  - tqdm
+  - openpyxl
+  - python-docx

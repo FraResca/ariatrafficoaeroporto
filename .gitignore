@@ -1,0 +1,13 @@
+.conda-env/
+__pycache__/
+.agents/
+.codex/
+*.pyc
+*.pyo
+*.pyd
+
+paper/ 
+
+Datasets_Raw/
+
+Analysis/

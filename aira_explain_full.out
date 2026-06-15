@@ -1,0 +1,71 @@
+miniconda3 module
+Running from: /hpc/home/fresca/ariatrafficoaeroporto
+SLURM_CPUS_PER_TASK=48
+Worker single-target: 35
+Checkpoint scritto: C6H6_porta_san_felice t+6h
+Checkpoint scritto: C6H6_porta_san_felice t+12h
+Checkpoint scritto: C6H6_porta_san_felice t+24h
+Checkpoint scritto: C6H6_porta_san_felice t+3h
+Checkpoint scritto: C6H6_porta_san_felice t+1h
+Checkpoint scritto: CO_porta_san_felice t+6h
+Checkpoint scritto: CO_porta_san_felice t+24h
+Checkpoint scritto: CO_porta_san_felice t+1h
+Checkpoint scritto: CO_porta_san_felice t+12h
+Checkpoint scritto: CO_porta_san_felice t+3h
+Checkpoint scritto: NO2_giardini_margherita t+24h
+Checkpoint scritto: NO2_via_chiarini t+24h
+Checkpoint scritto: NO2_via_chiarini t+1h
+Checkpoint scritto: NO2_via_chiarini t+6h
+Checkpoint scritto: NO2_via_chiarini t+12h
+Checkpoint scritto: NO2_via_chiarini t+3h
+Checkpoint scritto: O3_via_chiarini t+24h
+Checkpoint scritto: NO2_giardini_margherita t+12h
+Checkpoint scritto: O3_via_chiarini t+6h
+Checkpoint scritto: NO2_giardini_margherita t+6h
+Checkpoint scritto: NO2_porta_san_felice t+24h
+Checkpoint scritto: O3_via_chiarini t+12h
+Checkpoint scritto: NO2_giardini_margherita t+3h
+Checkpoint scritto: NO2_porta_san_felice t+12h
+Checkpoint scritto: NO2_porta_san_felice t+3h
+Checkpoint scritto: NO2_porta_san_felice t+6h
+Checkpoint scritto: NO2_giardini_margherita t+1h
+Checkpoint scritto: O3_giardini_margherita t+24h
+Checkpoint scritto: O3_giardini_margherita t+6h
+Checkpoint scritto: NO2_porta_san_felice t+1h
+Checkpoint scritto: O3_giardini_margherita t+12h
+Checkpoint scritto: O3_via_chiarini t+3h
+Checkpoint scritto: O3_via_chiarini t+1h
+Checkpoint scritto: O3_giardini_margherita t+1h
+Checkpoint scritto: O3_giardini_margherita t+3h
+Worker multioutput: 5
+Checkpoint multioutput scritto: t+12h
+Checkpoint multioutput scritto: t+3h
+Checkpoint multioutput scritto: t+24h
+Checkpoint multioutput scritto: t+6h
+Checkpoint multioutput scritto: t+1h
+File scritto: Analysis/slurm_full_explain/advanced_temporal_cv_scores.csv
+File scritto: Analysis/slurm_full_explain/advanced_temporal_cv_predictions.csv
+File scritto: Analysis/slurm_full_explain/advanced_temporal_cv_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_persistence_baseline_scores.csv
+File scritto: Analysis/slurm_full_explain/advanced_persistence_baseline_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_persistence_baseline_comparison.csv
+File scritto: Analysis/slurm_full_explain/advanced_feature_inventory.csv
+File scritto: Analysis/slurm_full_explain/advanced_feature_group_inventory.csv
+File scritto: Analysis/slurm_full_explain/advanced_validation_folds.csv
+File scritto: Analysis/slurm_full_explain/pollutant_station_reference_stats.csv
+File scritto: Analysis/slurm_full_explain/advanced_ablation_summary.csv
+Cartella grafici: Analysis/slurm_full_explain/plots
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_xgboost_scores.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_xgboost_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_ablation_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_group_shap.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_xgboost_native_feature_importances.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_xgboost_native_feature_importances_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_group_shap.csv
+File scritto: Analysis/slurm_full_explain/advanced_xgboost_native_feature_importances.csv
+File scritto: Analysis/slurm_full_explain/advanced_xgboost_native_feature_importances_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_extended_ablation_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_extended_ablation_delta_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_extended_ablation_summary.csv
+File scritto: Analysis/slurm_full_explain/advanced_runtime_profile.csv
+File scritto: Analysis/slurm_full_explain/advanced_multioutput_extended_ablation_delta_summary.csv

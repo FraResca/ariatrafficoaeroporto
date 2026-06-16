@@ -6,7 +6,7 @@ __pycache__/
 *.pyo
 *.pyd
 
-paper/ 
+paper/
 
 Datasets_Raw/
 
@@ -16,6 +16,7 @@ Analysis/
 *.out
 *.err
 send_this.sh
-*fresca*
+*_local*
+local_*
 *.slurm
 submit_*.sh

@@ -1,4 +1,4 @@
-# Traffic, Airport Activity, and Air Pollutant Analysis
+# Forecasting and Interpreting Urban Air Pollution Under Weather, Traffic and Airport Influenc
 
 Last updated: `2026-05-17`
 
@@ -460,15 +460,15 @@ The targets in the current run are:
 
 Descriptive statistics in the unified dataset:
 
-| target | unit | minimum | mean | maximum |
-| --- | --- | ---: | ---: | ---: |
-| `NO2_porta_san_felice` | `ug/m3` | `2.000` | `26.586` | `96.000` |
-| `CO_porta_san_felice` | `mg/m3` | `0.000` | `0.468` | `2.500` |
-| `C6H6_porta_san_felice` | `ug/m3` | `0.100` | `0.961` | `6.100` |
-| `NO2_giardini_margherita` | `ug/m3` | `0.000` | `13.928` | `63.000` |
-| `NO2_via_chiarini` | `ug/m3` | `0.000` | `15.560` | `82.000` |
-| `O3_giardini_margherita` | `ug/m3` | `0.000` | `50.426` | `188.000` |
-| `O3_via_chiarini` | `ug/m3` | `0.000` | `45.810` | `213.000` |
+| target                      | unit      |   minimum |       mean |     maximum |
+| --------------------------- | --------- | --------: | ---------: | ----------: |
+| `NO2_porta_san_felice`    | `ug/m3` | `2.000` | `26.586` |  `96.000` |
+| `CO_porta_san_felice`     | `mg/m3` | `0.000` |  `0.468` |   `2.500` |
+| `C6H6_porta_san_felice`   | `ug/m3` | `0.100` |  `0.961` |   `6.100` |
+| `NO2_giardini_margherita` | `ug/m3` | `0.000` | `13.928` |  `63.000` |
+| `NO2_via_chiarini`        | `ug/m3` | `0.000` | `15.560` |  `82.000` |
+| `O3_giardini_margherita`  | `ug/m3` | `0.000` | `50.426` | `188.000` |
+| `O3_via_chiarini`         | `ug/m3` | `0.000` | `45.810` | `213.000` |
 
 Useful interpretation:
 
@@ -671,43 +671,43 @@ The following table reports, for each target and horizon, the **best single-targ
 setup without autoregression**. It therefore does not contain all 1,960 raw
 results, but the best model and feature-set combination for each case.
 
-| target | h | model | feature set | R2 | MAE | RMSE | MAPE |
-| --- | ---: | --- | --- | ---: | ---: | ---: | ---: |
-| `C6H6_porta_san_felice` | `1` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.578` | `0.231` | `0.320` | `25.51` |
-| `C6H6_porta_san_felice` | `3` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.401` | `0.270` | `0.379` | `30.48` |
-| `C6H6_porta_san_felice` | `6` | `xgboost` | `no_target_without_station_wind_bools` | `0.305` | `0.299` | `0.409` | `34.73` |
-| `C6H6_porta_san_felice` | `12` | `xgboost` | `no_target_without_station_wind_bools` | `0.299` | `0.303` | `0.411` | `36.43` |
-| `C6H6_porta_san_felice` | `24` | `xgboost` | `no_target_without_service_type` | `0.179` | `0.331` | `0.445` | `38.85` |
-| `CO_porta_san_felice` | `1` | `xgboost` | `no_target_autoregressive` | `0.417` | `0.111` | `0.142` | `23.32` |
-| `CO_porta_san_felice` | `3` | `xgboost` | `no_target_without_service_type` | `0.272` | `0.124` | `0.162` | `25.67` |
-| `CO_porta_san_felice` | `6` | `xgboost` | `no_target_without_service_type` | `0.199` | `0.132` | `0.171` | `27.38` |
-| `CO_porta_san_felice` | `12` | `xgboost` | `no_target_autoregressive` | `0.147` | `0.141` | `0.180` | `29.43` |
-| `CO_porta_san_felice` | `24` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.087` | `0.143` | `0.184` | `30.15` |
-| `NO2_giardini_margherita` | `1` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.526` | `3.781` | `5.104` | `38.41` |
-| `NO2_giardini_margherita` | `3` | `xgboost` | `no_target_without_service_type` | `0.239` | `4.940` | `6.592` | `53.61` |
-| `NO2_giardini_margherita` | `6` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.116` | `5.471` | `7.094` | `66.10` |
-| `NO2_giardini_margherita` | `12` | `xgboost` | `no_target_without_service_type` | `0.023` | `5.681` | `7.314` | `73.28` |
-| `NO2_giardini_margherita` | `24` | `extra_trees` | `no_target_without_service_type_or_station_wind_bools` | `-0.027` | `5.921` | `7.570` | `82.94` |
-| `NO2_porta_san_felice` | `1` | `xgboost` | `no_target_without_service_type` | `0.206` | `8.519` | `10.841` | `34.61` |
-| `NO2_porta_san_felice` | `3` | `xgboost` | `no_target_without_service_type` | `0.070` | `9.254` | `11.723` | `38.43` |
-| `NO2_porta_san_felice` | `6` | `xgboost` | `no_target_without_station_wind_bools` | `-0.007` | `9.689` | `12.140` | `40.91` |
-| `NO2_porta_san_felice` | `12` | `adaboost` | `no_target_autoregressive` | `-0.062` | `10.086` | `12.495` | `45.41` |
-| `NO2_porta_san_felice` | `24` | `xgboost` | `no_target_autoregressive` | `-0.003` | `9.523` | `12.025` | `42.71` |
-| `NO2_via_chiarini` | `1` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.293` | `5.717` | `7.974` | `30.33` |
-| `NO2_via_chiarini` | `3` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.123` | `6.567` | `8.895` | `37.28` |
-| `NO2_via_chiarini` | `6` | `xgboost` | `no_target_without_service_type` | `0.057` | `6.868` | `9.167` | `41.64` |
-| `NO2_via_chiarini` | `12` | `xgboost` | `no_target_without_service_type` | `0.059` | `6.918` | `9.194` | `42.57` |
-| `NO2_via_chiarini` | `24` | `xgboost` | `no_target_autoregressive` | `0.023` | `6.989` | `9.372` | `43.79` |
-| `O3_giardini_margherita` | `1` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.813` | `7.061` | `9.210` | `44.02` |
-| `O3_giardini_margherita` | `3` | `xgboost` | `no_target_without_service_type` | `0.614` | `10.045` | `13.053` | `66.62` |
-| `O3_giardini_margherita` | `6` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.427` | `12.330` | `15.882` | `82.95` |
-| `O3_giardini_margherita` | `12` | `xgboost` | `no_target_without_station_wind_bools` | `0.274` | `14.041` | `17.720` | `112.20` |
-| `O3_giardini_margherita` | `24` | `adaboost` | `no_target_autoregressive` | `0.173` | `16.052` | `19.251` | `147.65` |
-| `O3_via_chiarini` | `1` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.766` | `8.906` | `11.421` | `46.94` |
-| `O3_via_chiarini` | `3` | `xgboost` | `no_target_without_service_type_or_station_wind_bools` | `0.623` | `11.171` | `14.580` | `65.55` |
-| `O3_via_chiarini` | `6` | `xgboost` | `no_target_without_service_type` | `0.439` | `13.707` | `17.761` | `84.37` |
-| `O3_via_chiarini` | `12` | `xgboost` | `no_target_without_station_wind_bools` | `0.422` | `14.250` | `18.067` | `102.97` |
-| `O3_via_chiarini` | `24` | `xgboost` | `no_target_without_service_type` | `0.342` | `15.414` | `19.417` | `119.03` |
+| target                      |      h | model           | feature set                                              |         R2 |        MAE |       RMSE |       MAPE |
+| --------------------------- | -----: | --------------- | -------------------------------------------------------- | ---------: | ---------: | ---------: | ---------: |
+| `C6H6_porta_san_felice`   |  `1` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.578` |  `0.231` |  `0.320` |  `25.51` |
+| `C6H6_porta_san_felice`   |  `3` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.401` |  `0.270` |  `0.379` |  `30.48` |
+| `C6H6_porta_san_felice`   |  `6` | `xgboost`     | `no_target_without_station_wind_bools`                 |  `0.305` |  `0.299` |  `0.409` |  `34.73` |
+| `C6H6_porta_san_felice`   | `12` | `xgboost`     | `no_target_without_station_wind_bools`                 |  `0.299` |  `0.303` |  `0.411` |  `36.43` |
+| `C6H6_porta_san_felice`   | `24` | `xgboost`     | `no_target_without_service_type`                       |  `0.179` |  `0.331` |  `0.445` |  `38.85` |
+| `CO_porta_san_felice`     |  `1` | `xgboost`     | `no_target_autoregressive`                             |  `0.417` |  `0.111` |  `0.142` |  `23.32` |
+| `CO_porta_san_felice`     |  `3` | `xgboost`     | `no_target_without_service_type`                       |  `0.272` |  `0.124` |  `0.162` |  `25.67` |
+| `CO_porta_san_felice`     |  `6` | `xgboost`     | `no_target_without_service_type`                       |  `0.199` |  `0.132` |  `0.171` |  `27.38` |
+| `CO_porta_san_felice`     | `12` | `xgboost`     | `no_target_autoregressive`                             |  `0.147` |  `0.141` |  `0.180` |  `29.43` |
+| `CO_porta_san_felice`     | `24` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.087` |  `0.143` |  `0.184` |  `30.15` |
+| `NO2_giardini_margherita` |  `1` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.526` |  `3.781` |  `5.104` |  `38.41` |
+| `NO2_giardini_margherita` |  `3` | `xgboost`     | `no_target_without_service_type`                       |  `0.239` |  `4.940` |  `6.592` |  `53.61` |
+| `NO2_giardini_margherita` |  `6` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.116` |  `5.471` |  `7.094` |  `66.10` |
+| `NO2_giardini_margherita` | `12` | `xgboost`     | `no_target_without_service_type`                       |  `0.023` |  `5.681` |  `7.314` |  `73.28` |
+| `NO2_giardini_margherita` | `24` | `extra_trees` | `no_target_without_service_type_or_station_wind_bools` | `-0.027` |  `5.921` |  `7.570` |  `82.94` |
+| `NO2_porta_san_felice`    |  `1` | `xgboost`     | `no_target_without_service_type`                       |  `0.206` |  `8.519` | `10.841` |  `34.61` |
+| `NO2_porta_san_felice`    |  `3` | `xgboost`     | `no_target_without_service_type`                       |  `0.070` |  `9.254` | `11.723` |  `38.43` |
+| `NO2_porta_san_felice`    |  `6` | `xgboost`     | `no_target_without_station_wind_bools`                 | `-0.007` |  `9.689` | `12.140` |  `40.91` |
+| `NO2_porta_san_felice`    | `12` | `adaboost`    | `no_target_autoregressive`                             | `-0.062` | `10.086` | `12.495` |  `45.41` |
+| `NO2_porta_san_felice`    | `24` | `xgboost`     | `no_target_autoregressive`                             | `-0.003` |  `9.523` | `12.025` |  `42.71` |
+| `NO2_via_chiarini`        |  `1` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.293` |  `5.717` |  `7.974` |  `30.33` |
+| `NO2_via_chiarini`        |  `3` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.123` |  `6.567` |  `8.895` |  `37.28` |
+| `NO2_via_chiarini`        |  `6` | `xgboost`     | `no_target_without_service_type`                       |  `0.057` |  `6.868` |  `9.167` |  `41.64` |
+| `NO2_via_chiarini`        | `12` | `xgboost`     | `no_target_without_service_type`                       |  `0.059` |  `6.918` |  `9.194` |  `42.57` |
+| `NO2_via_chiarini`        | `24` | `xgboost`     | `no_target_autoregressive`                             |  `0.023` |  `6.989` |  `9.372` |  `43.79` |
+| `O3_giardini_margherita`  |  `1` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.813` |  `7.061` |  `9.210` |  `44.02` |
+| `O3_giardini_margherita`  |  `3` | `xgboost`     | `no_target_without_service_type`                       |  `0.614` | `10.045` | `13.053` |  `66.62` |
+| `O3_giardini_margherita`  |  `6` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.427` | `12.330` | `15.882` |  `82.95` |
+| `O3_giardini_margherita`  | `12` | `xgboost`     | `no_target_without_station_wind_bools`                 |  `0.274` | `14.041` | `17.720` | `112.20` |
+| `O3_giardini_margherita`  | `24` | `adaboost`    | `no_target_autoregressive`                             |  `0.173` | `16.052` | `19.251` | `147.65` |
+| `O3_via_chiarini`         |  `1` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.766` |  `8.906` | `11.421` |  `46.94` |
+| `O3_via_chiarini`         |  `3` | `xgboost`     | `no_target_without_service_type_or_station_wind_bools` |  `0.623` | `11.171` | `14.580` |  `65.55` |
+| `O3_via_chiarini`         |  `6` | `xgboost`     | `no_target_without_service_type`                       |  `0.439` | `13.707` | `17.761` |  `84.37` |
+| `O3_via_chiarini`         | `12` | `xgboost`     | `no_target_without_station_wind_bools`                 |  `0.422` | `14.250` | `18.067` | `102.97` |
+| `O3_via_chiarini`         | `24` | `xgboost`     | `no_target_without_service_type`                       |  `0.342` | `15.414` | `19.417` | `119.03` |
 
 Main interpretation:
 
@@ -723,43 +723,43 @@ Main interpretation:
 This view measures the operational predictive potential when target persistence
 is made available to the model.
 
-| target | h | model | feature set | R2 | MAE | RMSE | MAPE |
-| --- | ---: | --- | --- | ---: | ---: | ---: | ---: |
-| `C6H6_porta_san_felice` | `1` | `xgboost` | `with_target_without_station_wind_bools` | `0.677` | `0.190` | `0.279` | `19.83` |
-| `C6H6_porta_san_felice` | `3` | `xgboost` | `with_target_autoregressive` | `0.448` | `0.261` | `0.368` | `28.96` |
-| `C6H6_porta_san_felice` | `6` | `xgboost` | `with_target_autoregressive` | `0.336` | `0.291` | `0.401` | `33.74` |
-| `C6H6_porta_san_felice` | `12` | `xgboost` | `with_target_autoregressive` | `0.310` | `0.299` | `0.407` | `35.65` |
-| `C6H6_porta_san_felice` | `24` | `xgboost` | `with_target_without_station_wind_bools` | `0.221` | `0.320` | `0.435` | `36.86` |
-| `CO_porta_san_felice` | `1` | `xgboost` | `with_target_without_station_wind_bools` | `0.717` | `0.066` | `0.095` | `12.87` |
-| `CO_porta_san_felice` | `3` | `xgboost` | `with_target_without_station_wind_bools` | `0.505` | `0.099` | `0.134` | `19.60` |
-| `CO_porta_san_felice` | `6` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.419` | `0.111` | `0.146` | `22.26` |
-| `CO_porta_san_felice` | `12` | `xgboost` | `with_target_without_service_type` | `0.361` | `0.116` | `0.154` | `23.03` |
-| `CO_porta_san_felice` | `24` | `xgboost` | `with_target_autoregressive` | `0.320` | `0.120` | `0.159` | `23.89` |
-| `NO2_giardini_margherita` | `1` | `xgboost` | `with_target_autoregressive` | `0.781` | `2.422` | `3.561` | `21.47` |
-| `NO2_giardini_margherita` | `3` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.369` | `4.457` | `6.119` | `44.25` |
-| `NO2_giardini_margherita` | `6` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.166` | `5.316` | `6.954` | `61.81` |
-| `NO2_giardini_margherita` | `12` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.089` | `5.541` | `7.154` | `70.99` |
-| `NO2_giardini_margherita` | `24` | `extra_trees` | `with_target_autoregressive` | `0.004` | `5.840` | `7.491` | `81.72` |
-| `NO2_porta_san_felice` | `1` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.788` | `4.192` | `5.723` | `15.42` |
-| `NO2_porta_san_felice` | `3` | `xgboost` | `with_target_autoregressive` | `0.503` | `6.644` | `8.706` | `26.49` |
-| `NO2_porta_san_felice` | `6` | `ridge` | `with_target_without_service_type_or_station_wind_bools` | `0.342` | `7.632` | `9.810` | `34.04` |
-| `NO2_porta_san_felice` | `12` | `xgboost` | `with_target_autoregressive` | `0.325` | `7.770` | `9.928` | `33.70` |
-| `NO2_porta_san_felice` | `24` | `xgboost` | `with_target_without_service_type` | `0.368` | `7.596` | `9.720` | `34.12` |
-| `NO2_via_chiarini` | `1` | `xgboost` | `with_target_without_service_type` | `0.748` | `3.210` | `4.761` | `18.06` |
-| `NO2_via_chiarini` | `3` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.381` | `5.406` | `7.451` | `32.82` |
-| `NO2_via_chiarini` | `6` | `xgboost` | `with_target_autoregressive` | `0.236` | `6.141` | `8.229` | `39.96` |
-| `NO2_via_chiarini` | `12` | `xgboost` | `with_target_without_service_type` | `0.237` | `6.151` | `8.229` | `40.46` |
-| `NO2_via_chiarini` | `24` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.210` | `6.266` | `8.395` | `40.61` |
-| `O3_giardini_margherita` | `1` | `xgboost` | `with_target_autoregressive` | `0.915` | `4.407` | `6.179` | `26.44` |
-| `O3_giardini_margherita` | `3` | `xgboost` | `with_target_without_service_type` | `0.684` | `9.004` | `11.807` | `59.25` |
-| `O3_giardini_margherita` | `6` | `xgboost` | `with_target_without_service_type` | `0.465` | `11.991` | `15.339` | `83.74` |
-| `O3_giardini_margherita` | `12` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.329` | `13.682` | `17.339` | `102.28` |
-| `O3_giardini_margherita` | `24` | `extra_trees` | `with_target_without_service_type_or_station_wind_bools` | `0.220` | `15.059` | `18.585` | `129.57` |
-| `O3_via_chiarini` | `1` | `xgboost` | `with_target_without_station_wind_bools` | `0.912` | `5.085` | `7.069` | `27.58` |
-| `O3_via_chiarini` | `3` | `xgboost` | `with_target_without_service_type` | `0.668` | `10.385` | `13.633` | `61.36` |
-| `O3_via_chiarini` | `6` | `xgboost` | `with_target_without_service_type_or_station_wind_bools` | `0.469` | `13.239` | `17.153` | `86.63` |
-| `O3_via_chiarini` | `12` | `xgboost` | `with_target_without_station_wind_bools` | `0.436` | `13.762` | `17.593` | `107.09` |
-| `O3_via_chiarini` | `24` | `extra_trees` | `with_target_without_service_type_or_station_wind_bools` | `0.352` | `15.186` | `19.033` | `121.93` |
+| target                      |      h | model           | feature set                                                |        R2 |        MAE |       RMSE |       MAPE |
+| --------------------------- | -----: | --------------- | ---------------------------------------------------------- | --------: | ---------: | ---------: | ---------: |
+| `C6H6_porta_san_felice`   |  `1` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.677` |  `0.190` |  `0.279` |  `19.83` |
+| `C6H6_porta_san_felice`   |  `3` | `xgboost`     | `with_target_autoregressive`                             | `0.448` |  `0.261` |  `0.368` |  `28.96` |
+| `C6H6_porta_san_felice`   |  `6` | `xgboost`     | `with_target_autoregressive`                             | `0.336` |  `0.291` |  `0.401` |  `33.74` |
+| `C6H6_porta_san_felice`   | `12` | `xgboost`     | `with_target_autoregressive`                             | `0.310` |  `0.299` |  `0.407` |  `35.65` |
+| `C6H6_porta_san_felice`   | `24` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.221` |  `0.320` |  `0.435` |  `36.86` |
+| `CO_porta_san_felice`     |  `1` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.717` |  `0.066` |  `0.095` |  `12.87` |
+| `CO_porta_san_felice`     |  `3` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.505` |  `0.099` |  `0.134` |  `19.60` |
+| `CO_porta_san_felice`     |  `6` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.419` |  `0.111` |  `0.146` |  `22.26` |
+| `CO_porta_san_felice`     | `12` | `xgboost`     | `with_target_without_service_type`                       | `0.361` |  `0.116` |  `0.154` |  `23.03` |
+| `CO_porta_san_felice`     | `24` | `xgboost`     | `with_target_autoregressive`                             | `0.320` |  `0.120` |  `0.159` |  `23.89` |
+| `NO2_giardini_margherita` |  `1` | `xgboost`     | `with_target_autoregressive`                             | `0.781` |  `2.422` |  `3.561` |  `21.47` |
+| `NO2_giardini_margherita` |  `3` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.369` |  `4.457` |  `6.119` |  `44.25` |
+| `NO2_giardini_margherita` |  `6` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.166` |  `5.316` |  `6.954` |  `61.81` |
+| `NO2_giardini_margherita` | `12` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.089` |  `5.541` |  `7.154` |  `70.99` |
+| `NO2_giardini_margherita` | `24` | `extra_trees` | `with_target_autoregressive`                             | `0.004` |  `5.840` |  `7.491` |  `81.72` |
+| `NO2_porta_san_felice`    |  `1` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.788` |  `4.192` |  `5.723` |  `15.42` |
+| `NO2_porta_san_felice`    |  `3` | `xgboost`     | `with_target_autoregressive`                             | `0.503` |  `6.644` |  `8.706` |  `26.49` |
+| `NO2_porta_san_felice`    |  `6` | `ridge`       | `with_target_without_service_type_or_station_wind_bools` | `0.342` |  `7.632` |  `9.810` |  `34.04` |
+| `NO2_porta_san_felice`    | `12` | `xgboost`     | `with_target_autoregressive`                             | `0.325` |  `7.770` |  `9.928` |  `33.70` |
+| `NO2_porta_san_felice`    | `24` | `xgboost`     | `with_target_without_service_type`                       | `0.368` |  `7.596` |  `9.720` |  `34.12` |
+| `NO2_via_chiarini`        |  `1` | `xgboost`     | `with_target_without_service_type`                       | `0.748` |  `3.210` |  `4.761` |  `18.06` |
+| `NO2_via_chiarini`        |  `3` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.381` |  `5.406` |  `7.451` |  `32.82` |
+| `NO2_via_chiarini`        |  `6` | `xgboost`     | `with_target_autoregressive`                             | `0.236` |  `6.141` |  `8.229` |  `39.96` |
+| `NO2_via_chiarini`        | `12` | `xgboost`     | `with_target_without_service_type`                       | `0.237` |  `6.151` |  `8.229` |  `40.46` |
+| `NO2_via_chiarini`        | `24` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.210` |  `6.266` |  `8.395` |  `40.61` |
+| `O3_giardini_margherita`  |  `1` | `xgboost`     | `with_target_autoregressive`                             | `0.915` |  `4.407` |  `6.179` |  `26.44` |
+| `O3_giardini_margherita`  |  `3` | `xgboost`     | `with_target_without_service_type`                       | `0.684` |  `9.004` | `11.807` |  `59.25` |
+| `O3_giardini_margherita`  |  `6` | `xgboost`     | `with_target_without_service_type`                       | `0.465` | `11.991` | `15.339` |  `83.74` |
+| `O3_giardini_margherita`  | `12` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.329` | `13.682` | `17.339` | `102.28` |
+| `O3_giardini_margherita`  | `24` | `extra_trees` | `with_target_without_service_type_or_station_wind_bools` | `0.220` | `15.059` | `18.585` | `129.57` |
+| `O3_via_chiarini`         |  `1` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.912` |  `5.085` |  `7.069` |  `27.58` |
+| `O3_via_chiarini`         |  `3` | `xgboost`     | `with_target_without_service_type`                       | `0.668` | `10.385` | `13.633` |  `61.36` |
+| `O3_via_chiarini`         |  `6` | `xgboost`     | `with_target_without_service_type_or_station_wind_bools` | `0.469` | `13.239` | `17.153` |  `86.63` |
+| `O3_via_chiarini`         | `12` | `xgboost`     | `with_target_without_station_wind_bools`                 | `0.436` | `13.762` | `17.593` | `107.09` |
+| `O3_via_chiarini`         | `24` | `extra_trees` | `with_target_without_service_type_or_station_wind_bools` | `0.352` | `15.186` | `19.033` | `121.93` |
 
 Main interpretation:
 
@@ -804,16 +804,16 @@ general baseline, but it produces some measurable improvements.
 
 Cases in which multioutput outperforms the best single-target result:
 
-| target | h | multioutput feature set | multioutput R2 | best single-target R2 | delta |
-| --- | ---: | --- | ---: | ---: | ---: |
-| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_service_type_or_station_wind_bools` | `0.070` | `0.004` | `+0.066` |
-| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_station_wind_bools` | `0.051` | `0.004` | `+0.047` |
-| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_service_type` | `0.048` | `0.004` | `+0.044` |
-| `C6H6_porta_san_felice` | `24` | `with_pollutant_context_without_station_wind_bools` | `0.250` | `0.221` | `+0.029` |
-| `NO2_giardini_margherita` | `12` | `with_pollutant_context` | `0.118` | `0.089` | `+0.028` |
-| `O3_via_chiarini` | `24` | `with_pollutant_context_without_service_type_or_station_wind_bools` | `0.371` | `0.352` | `+0.019` |
-| `C6H6_porta_san_felice` | `3` | `with_pollutant_context` | `0.465` | `0.448` | `+0.017` |
-| `NO2_via_chiarini` | `6` | `with_pollutant_context_without_service_type` | `0.247` | `0.236` | `+0.011` |
+| target                      |      h | multioutput feature set                                               | multioutput R2 | best single-target R2 |      delta |
+| --------------------------- | -----: | --------------------------------------------------------------------- | -------------: | --------------------: | ---------: |
+| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_service_type_or_station_wind_bools`   |      `0.070` |             `0.004` | `+0.066` |
+| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_station_wind_bools`                   |      `0.051` |             `0.004` | `+0.047` |
+| `NO2_giardini_margherita` | `24` | `no_pollutant_context_without_service_type`                         |      `0.048` |             `0.004` | `+0.044` |
+| `C6H6_porta_san_felice`   | `24` | `with_pollutant_context_without_station_wind_bools`                 |      `0.250` |             `0.221` | `+0.029` |
+| `NO2_giardini_margherita` | `12` | `with_pollutant_context`                                            |      `0.118` |             `0.089` | `+0.028` |
+| `O3_via_chiarini`         | `24` | `with_pollutant_context_without_service_type_or_station_wind_bools` |      `0.371` |             `0.352` | `+0.019` |
+| `C6H6_porta_san_felice`   |  `3` | `with_pollutant_context`                                            |      `0.465` |             `0.448` | `+0.017` |
+| `NO2_via_chiarini`        |  `6` | `with_pollutant_context_without_service_type`                       |      `0.247` |             `0.236` | `+0.011` |
 
 Conclusion:
 
@@ -829,21 +829,21 @@ Conclusion:
 
 Extended single-target `xgboost` ablation, averaged over targets and horizons:
 
-| removed group | mean delta R2 | interpretation |
-| --- | ---: | --- |
-| `meteo` | `+0.087` | strongest average contribution |
-| `other_pollutants` | `+0.026` | second most important average block |
-| `other_pollutants_porta_san_felice` | `+0.021` | strong local context at PSF |
-| `rolling_features` | `+0.017` | highly useful recent aggregated memory |
-| `other_pollutants_giardini_margherita` | `+0.006` | positive but secondary local contribution |
-| `urban_traffic` | `+0.004` | positive but limited average contribution |
-| `diff_features` | `+0.003` | small but real contribution |
-| `lag_features` | `+0.002` | weaker than rolling features |
-| `wind_transport` | `+0.002` | small average contribution |
-| `airport` | `+0.001` | positive but weak on average |
-| `station_wind_bools` | `-0.001` | nearly null on average |
-| `airport_service_type` | `-0.002` | selective, not uniform |
-| `airport_wind_interaction` | `-0.003` | selective, not uniform |
+| removed group                            | mean delta R2 | interpretation                            |
+| ---------------------------------------- | ------------: | ----------------------------------------- |
+| `meteo`                                |    `+0.087` | strongest average contribution            |
+| `other_pollutants`                     |    `+0.026` | second most important average block       |
+| `other_pollutants_porta_san_felice`    |    `+0.021` | strong local context at PSF               |
+| `rolling_features`                     |    `+0.017` | highly useful recent aggregated memory    |
+| `other_pollutants_giardini_margherita` |    `+0.006` | positive but secondary local contribution |
+| `urban_traffic`                        |    `+0.004` | positive but limited average contribution |
+| `diff_features`                        |    `+0.003` | small but real contribution               |
+| `lag_features`                         |    `+0.002` | weaker than rolling features              |
+| `wind_transport`                       |    `+0.002` | small average contribution                |
+| `airport`                              |    `+0.001` | positive but weak on average              |
+| `station_wind_bools`                   |    `-0.001` | nearly null on average                    |
+| `airport_service_type`                 |    `-0.002` | selective, not uniform                    |
+| `airport_wind_interaction`             |    `-0.003` | selective, not uniform                    |
 
 ### 10.2. Where the Airport Block Provides Predictive Information
 
@@ -894,15 +894,15 @@ Three points follow:
 
 Group-level SHAP confirms the structure already observed in the ablations.
 
-| target | group 1 | group 2 | group 3 | interpretation |
-| --- | --- | --- | --- | --- |
-| `NO2_porta_san_felice` | `rolling_features (12.62)` | `target_autoregressive (7.70)` | `meteo (7.41)` | recent memory dominates |
-| `CO_porta_san_felice` | `rolling_features (0.191)` | `target_autoregressive (0.154)` | `meteo (0.101)` | persistence plus meteorology |
-| `C6H6_porta_san_felice` | `rolling_features (0.448)` | `meteo (0.281)` | `lag_features / other_pollutants (~0.223)` | target more readable from external factors |
-| `NO2_giardini_margherita` | `rolling_features (7.65)` | `meteo (6.88)` | `target_autoregressive (3.23)` | meteorology and memory jointly matter |
-| `NO2_via_chiarini` | `rolling_features (10.39)` | `target_autoregressive (6.57)` | `meteo (5.94)` | recent dynamics are very strong |
-| `O3_giardini_margherita` | `rolling_features (31.92)` | `meteo (29.55)` | `target_autoregressive (23.27)` | highly regular structure |
-| `O3_via_chiarini` | `rolling_features (33.66)` | `meteo (33.01)` | `target_autoregressive (22.65)` | meteorology and rolling features dominate |
+| target                      | group 1                      | group 2                           | group 3                                      | interpretation                             |
+| --------------------------- | ---------------------------- | --------------------------------- | -------------------------------------------- | ------------------------------------------ |
+| `NO2_porta_san_felice`    | `rolling_features (12.62)` | `target_autoregressive (7.70)`  | `meteo (7.41)`                             | recent memory dominates                    |
+| `CO_porta_san_felice`     | `rolling_features (0.191)` | `target_autoregressive (0.154)` | `meteo (0.101)`                            | persistence plus meteorology               |
+| `C6H6_porta_san_felice`   | `rolling_features (0.448)` | `meteo (0.281)`                 | `lag_features / other_pollutants (~0.223)` | target more readable from external factors |
+| `NO2_giardini_margherita` | `rolling_features (7.65)`  | `meteo (6.88)`                  | `target_autoregressive (3.23)`             | meteorology and memory jointly matter      |
+| `NO2_via_chiarini`        | `rolling_features (10.39)` | `target_autoregressive (6.57)`  | `meteo (5.94)`                             | recent dynamics are very strong            |
+| `O3_giardini_margherita`  | `rolling_features (31.92)` | `meteo (29.55)`                 | `target_autoregressive (23.27)`            | highly regular structure                   |
+| `O3_via_chiarini`         | `rolling_features (33.66)` | `meteo (33.01)`                 | `target_autoregressive (22.65)`            | meteorology and rolling features dominate  |
 
 ### 11.2. What `service_type` Adds
 
@@ -927,15 +927,15 @@ The `blq_service_*` features appear in the importance outputs:
 
 ### 12.1. Descriptive `downwind - upwind` Contrast
 
-| target | unit | downwind mean | upwind mean | downwind - upwind |
-| --- | --- | ---: | ---: | ---: |
-| `NO2_porta_san_felice` | `ug/m3` | `28.75` | `29.65` | `-0.90` |
-| `CO_porta_san_felice` | `mg/m3` | `0.554` | `0.468` | `+0.086` |
-| `C6H6_porta_san_felice` | `ug/m3` | `1.135` | `0.973` | `+0.163` |
-| `NO2_giardini_margherita` | `ug/m3` | `17.37` | `14.27` | `+3.10` |
-| `NO2_via_chiarini` | `ug/m3` | `17.26` | `16.91` | `+0.35` |
-| `O3_giardini_margherita` | `ug/m3` | `38.22` | `55.82` | `-17.61` |
-| `O3_via_chiarini` | `ug/m3` | `34.11` | `55.57` | `-21.46` |
+| target                      | unit      | downwind mean | upwind mean | downwind - upwind |
+| --------------------------- | --------- | ------------: | ----------: | ----------------: |
+| `NO2_porta_san_felice`    | `ug/m3` |     `28.75` |   `29.65` |         `-0.90` |
+| `CO_porta_san_felice`     | `mg/m3` |     `0.554` |   `0.468` |        `+0.086` |
+| `C6H6_porta_san_felice`   | `ug/m3` |     `1.135` |   `0.973` |        `+0.163` |
+| `NO2_giardini_margherita` | `ug/m3` |     `17.37` |   `14.27` |         `+3.10` |
+| `NO2_via_chiarini`        | `ug/m3` |     `17.26` |   `16.91` |         `+0.35` |
+| `O3_giardini_margherita`  | `ug/m3` |     `38.22` |   `55.82` |        `-17.61` |
+| `O3_via_chiarini`         | `ug/m3` |     `34.11` |   `55.57` |        `-21.46` |
 
 First message:
 
@@ -946,54 +946,54 @@ First message:
 
 ### 12.2. `downwind/upwind` Matching
 
-| target | mean diff downwind - upwind | p-value | interpretation |
-| --- | ---: | ---: | --- |
-| `NO2_porta_san_felice` | `-1.33` | `0.0030` | lower under downwind even after matching |
-| `CO_porta_san_felice` | `+0.0186` | `0.0122` | small but robust positive signal |
-| `C6H6_porta_san_felice` | `+0.0152` | `0.3870` | non-robust difference |
-| `NO2_giardini_margherita` | `+0.843` | `0.0024` | robust positive signal |
-| `NO2_via_chiarini` | `-0.625` | `0.0555` | ambiguous |
-| `O3_giardini_margherita` | `-5.66` | `<0.001` | much lower under downwind |
-| `O3_via_chiarini` | `-8.98` | `<0.001` | much lower under downwind |
+| target                      | mean diff downwind - upwind |    p-value | interpretation                           |
+| --------------------------- | --------------------------: | ---------: | ---------------------------------------- |
+| `NO2_porta_san_felice`    |                   `-1.33` | `0.0030` | lower under downwind even after matching |
+| `CO_porta_san_felice`     |                 `+0.0186` | `0.0122` | small but robust positive signal         |
+| `C6H6_porta_san_felice`   |                 `+0.0152` | `0.3870` | non-robust difference                    |
+| `NO2_giardini_margherita` |                  `+0.843` | `0.0024` | robust positive signal                   |
+| `NO2_via_chiarini`        |                  `-0.625` | `0.0555` | ambiguous                                |
+| `O3_giardini_margherita`  |                   `-5.66` | `<0.001` | much lower under downwind                |
+| `O3_via_chiarini`         |                   `-8.98` | `<0.001` | much lower under downwind                |
 
 ### 12.3. Block Bootstrap
 
-| target | mean effect downwind - upwind | CI95 | interpretation |
-| --- | ---: | --- | --- |
-| `NO2_porta_san_felice` | `-1.03` | crosses `0` | negative sign but not robust |
-| `CO_porta_san_felice` | `+0.087` | entirely positive | stable positive signal |
-| `C6H6_porta_san_felice` | `+0.164` | entirely positive | fairly stable positive signal |
-| `NO2_giardini_margherita` | `+3.08` | entirely positive | clear positive signal |
-| `NO2_via_chiarini` | `+0.36` | crosses `0` | weak/uncertain effect |
-| `O3_giardini_margherita` | `-17.72` | entirely negative | very strong negative signal |
-| `O3_via_chiarini` | `-21.52` | entirely negative | very strong negative signal |
+| target                      | mean effect downwind - upwind | CI95              | interpretation                |
+| --------------------------- | ----------------------------: | ----------------- | ----------------------------- |
+| `NO2_porta_san_felice`    |                     `-1.03` | crosses `0`     | negative sign but not robust  |
+| `CO_porta_san_felice`     |                    `+0.087` | entirely positive | stable positive signal        |
+| `C6H6_porta_san_felice`   |                    `+0.164` | entirely positive | fairly stable positive signal |
+| `NO2_giardini_margherita` |                     `+3.08` | entirely positive | clear positive signal         |
+| `NO2_via_chiarini`        |                     `+0.36` | crosses `0`     | weak/uncertain effect         |
+| `O3_giardini_margherita`  |                    `-17.72` | entirely negative | very strong negative signal   |
+| `O3_via_chiarini`         |                    `-21.52` | entirely negative | very strong negative signal   |
 
 ### 12.4. `high_downwind - low_downwind`
 
-| target | effect high_downwind - low_downwind | interpretation |
-| --- | ---: | --- |
-| `NO2_porta_san_felice` | `+2.72` | increases during downwind hours with high BLQ activity |
-| `CO_porta_san_felice` | `-0.136` | opposite sign to a simple monotonic relationship |
-| `C6H6_porta_san_felice` | `-0.174` | opposite sign to a simple monotonic relationship |
-| `NO2_giardini_margherita` | `-3.17` | opposite sign |
-| `NO2_via_chiarini` | `-6.22` | opposite sign |
-| `O3_giardini_margherita` | `+34.15` | very large increase |
-| `O3_via_chiarini` | `+41.15` | very large increase |
+| target                      | effect high_downwind - low_downwind | interpretation                                         |
+| --------------------------- | ----------------------------------: | ------------------------------------------------------ |
+| `NO2_porta_san_felice`    |                           `+2.72` | increases during downwind hours with high BLQ activity |
+| `CO_porta_san_felice`     |                          `-0.136` | opposite sign to a simple monotonic relationship       |
+| `C6H6_porta_san_felice`   |                          `-0.174` | opposite sign to a simple monotonic relationship       |
+| `NO2_giardini_margherita` |                           `-3.17` | opposite sign                                          |
+| `NO2_via_chiarini`        |                           `-6.22` | opposite sign                                          |
+| `O3_giardini_margherita`  |                          `+34.15` | very large increase                                    |
+| `O3_via_chiarini`         |                          `+41.15` | very large increase                                    |
 
 This table is important because it shows that BLQ activity, local chemistry,
 atmospheric mixing, and traffic do not reduce to a simple monotonic relationship.
 
 ### 12.5. Threshold Sensitivity
 
-| target | diff @0.30 | diff @0.50 | diff @0.70 | diff @0.85 | interpretation |
-| --- | ---: | ---: | ---: | ---: | --- |
-| `NO2_porta_san_felice` | `-1.16` | `-0.90` | `-0.93` | `-0.73` | always negative |
-| `CO_porta_san_felice` | `+0.076` | `+0.086` | `+0.083` | `+0.044` | always positive |
-| `C6H6_porta_san_felice` | `+0.138` | `+0.163` | `+0.153` | `+0.096` | always positive |
-| `NO2_giardini_margherita` | `+2.89` | `+3.10` | `+3.43` | `+2.59` | always positive |
-| `NO2_via_chiarini` | `+0.50` | `+0.35` | `-0.54` | `-3.22` | sign changes |
-| `O3_giardini_margherita` | `-18.44` | `-17.61` | `-15.23` | `-6.60` | always negative |
-| `O3_via_chiarini` | `-22.94` | `-21.46` | `-17.30` | `-5.48` | always negative |
+| target                      | diff @0.30 | diff @0.50 | diff @0.70 | diff @0.85 | interpretation  |
+| --------------------------- | ---------: | ---------: | ---------: | ---------: | --------------- |
+| `NO2_porta_san_felice`    |  `-1.16` |  `-0.90` |  `-0.93` |  `-0.73` | always negative |
+| `CO_porta_san_felice`     | `+0.076` | `+0.086` | `+0.083` | `+0.044` | always positive |
+| `C6H6_porta_san_felice`   | `+0.138` | `+0.163` | `+0.153` | `+0.096` | always positive |
+| `NO2_giardini_margherita` |  `+2.89` |  `+3.10` |  `+3.43` |  `+2.59` | always positive |
+| `NO2_via_chiarini`        |  `+0.50` |  `+0.35` |  `-0.54` |  `-3.22` | sign changes    |
+| `O3_giardini_margherita`  | `-18.44` | `-17.61` | `-15.23` |  `-6.60` | always negative |
+| `O3_via_chiarini`         | `-22.94` | `-21.46` | `-17.30` |  `-5.48` | always negative |
 
 ### 12.6. `BLQ x downwind` Regressions
 
@@ -1038,24 +1038,24 @@ previously distributed across forecasting, ablations, and wind contrasts.
 
 ### 13.1. Target-Level Synthesis
 
-| target | mean autoregressive gain R2 | top group 1 | delta | top group 2 | delta | downwind-upwind std units | matched std units | bootstrap std units | stable threshold |
-| --- | ---: | --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |
-| `C6H6_porta_san_felice` | `0.046` | `other_pollutants` | `0.096` | `meteo` | `0.054` | `0.247` | `0.023` | `0.248` | `1` |
-| `CO_porta_san_felice` | `0.240` | `meteo` | `0.261` | `other_pollutants` | `0.100` | `0.296` | `0.064` | `0.301` | `1` |
-| `NO2_giardini_margherita` | `0.106` | `meteo` | `0.192` | `urban_traffic` | `0.010` | `0.323` | `0.088` | `0.321` | `1` |
-| `NO2_porta_san_felice` | `0.424` | `other_pollutants` | `0.095` | `rolling_features` | `0.056` | `-0.066` | `-0.098` | `-0.076` | `1` |
-| `NO2_via_chiarini` | `0.251` | `meteo` | `0.131` | `other_pollutants` | `0.081` | `0.034` | `-0.060` | `0.035` | `0` |
-| `O3_giardini_margherita` | `0.062` | `meteo` | `0.272` | `rolling_features` | `0.070` | `-0.471` | `-0.151` | `-0.474` | `1` |
-| `O3_via_chiarini` | `0.049` | `meteo` | `0.090` | `other_pollutants` | `0.052` | `-0.548` | `-0.229` | `-0.549` | `1` |
+| target                      | mean autoregressive gain R2 | top group 1          |     delta | top group 2          |     delta | downwind-upwind std units | matched std units | bootstrap std units | stable threshold |
+| --------------------------- | --------------------------: | -------------------- | --------: | -------------------- | --------: | ------------------------: | ----------------: | ------------------: | ---------------: |
+| `C6H6_porta_san_felice`   |                   `0.046` | `other_pollutants` | `0.096` | `meteo`            | `0.054` |                 `0.247` |         `0.023` |           `0.248` |            `1` |
+| `CO_porta_san_felice`     |                   `0.240` | `meteo`            | `0.261` | `other_pollutants` | `0.100` |                 `0.296` |         `0.064` |           `0.301` |            `1` |
+| `NO2_giardini_margherita` |                   `0.106` | `meteo`            | `0.192` | `urban_traffic`    | `0.010` |                 `0.323` |         `0.088` |           `0.321` |            `1` |
+| `NO2_porta_san_felice`    |                   `0.424` | `other_pollutants` | `0.095` | `rolling_features` | `0.056` |                `-0.066` |        `-0.098` |          `-0.076` |            `1` |
+| `NO2_via_chiarini`        |                   `0.251` | `meteo`            | `0.131` | `other_pollutants` | `0.081` |                 `0.034` |        `-0.060` |           `0.035` |            `0` |
+| `O3_giardini_margherita`  |                   `0.062` | `meteo`            | `0.272` | `rolling_features` | `0.070` |                `-0.471` |        `-0.151` |          `-0.474` |            `1` |
+| `O3_via_chiarini`         |                   `0.049` | `meteo`            | `0.090` | `other_pollutants` | `0.052` |                `-0.548` |        `-0.229` |          `-0.549` |            `1` |
 
 ### 13.2. Chemical-Family Synthesis
 
-| pollutant | best no-auto R2 1h | best no-auto R2 24h | best with-auto R2 1h | best with-auto R2 24h | mean autoregressive gain | raw downwind-upwind std units | matched std units | bootstrap std units | high_downwind-low_downwind std units | stable threshold | top groups |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| `C6H6` | `0.578` | `0.179` | `0.677` | `0.221` | `0.046` | `0.247` | `0.023` | `0.248` | `-0.264` | `1.00` | `other_pollutants`, `meteo`, `rolling_features` |
-| `CO` | `0.417` | `0.087` | `0.717` | `0.320` | `0.240` | `0.296` | `0.064` | `0.301` | `-0.466` | `1.00` | `meteo`, `other_pollutants`, `rolling_features` |
-| `NO2` | `0.342` | `-0.002` | `0.772` | `0.194` | `0.261` | `0.097` | `-0.023` | `0.093` | `-0.242` | `0.67` | `meteo`, `other_pollutants`, `rolling_features` |
-| `O3` | `0.790` | `0.258` | `0.914` | `0.286` | `0.056` | `-0.510` | `-0.190` | `-0.512` | `0.982` | `1.00` | `meteo`, `other_pollutants`, `other_pollutants` |
+| pollutant | best no-auto R2 1h | best no-auto R2 24h | best with-auto R2 1h | best with-auto R2 24h | mean autoregressive gain | raw downwind-upwind std units | matched std units | bootstrap std units | high_downwind-low_downwind std units | stable threshold | top groups                                            |
+| --------- | -----------------: | ------------------: | -------------------: | --------------------: | -----------------------: | ----------------------------: | ----------------: | ------------------: | -----------------------------------: | ---------------: | ----------------------------------------------------- |
+| `C6H6`  |          `0.578` |           `0.179` |            `0.677` |             `0.221` |                `0.046` |                     `0.247` |         `0.023` |           `0.248` |                           `-0.264` |         `1.00` | `other_pollutants`, `meteo`, `rolling_features` |
+| `CO`    |          `0.417` |           `0.087` |            `0.717` |             `0.320` |                `0.240` |                     `0.296` |         `0.064` |           `0.301` |                           `-0.466` |         `1.00` | `meteo`, `other_pollutants`, `rolling_features` |
+| `NO2`   |          `0.342` |          `-0.002` |            `0.772` |             `0.194` |                `0.261` |                     `0.097` |        `-0.023` |           `0.093` |                           `-0.242` |         `0.67` | `meteo`, `other_pollutants`, `rolling_features` |
+| `O3`    |          `0.790` |           `0.258` |            `0.914` |             `0.286` |                `0.056` |                    `-0.510` |        `-0.190` |          `-0.512` |                            `0.982` |         `1.00` | `meteo`, `other_pollutants`, `other_pollutants` |
 
 ### 13.3. Final Interpretation of the Comparison
 
